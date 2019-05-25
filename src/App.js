@@ -18,6 +18,7 @@ class App extends React.Component {
     city: undefined,
     country: undefined,
     humidity: undefined,
+    condition: undefined,
     description: undefined,
     error: undefined
   }
@@ -36,6 +37,7 @@ class App extends React.Component {
         city: data.name,
         country: data.sys.country,
         humidity: data.main.humidity,
+        condition: data.weather[0].main,
         description: data.weather[0].description,
         error: ""
       })
@@ -45,6 +47,7 @@ class App extends React.Component {
         city: undefined,
         country: undefined,
         humidity: undefined,
+        condition: undefined,
         description: undefined,
         error: "Please enter city and country"
       })
@@ -73,7 +76,10 @@ class App extends React.Component {
                       description={this.state.description}
                       error={this.state.error}
                     />
-                    <GenericWeather city={this.state.city} temp='25º' status='sun'/>
+                    <GenericWeather
+                        city={this.state.city}
+                        temp={this.state.temperature}
+                        status={this.state.condition}/>
                   </div>
 
 

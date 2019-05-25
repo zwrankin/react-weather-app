@@ -65,6 +65,20 @@ $color5: #2092A9;
   animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
 }
 
+.rain {
+  background: $color4;
+  border-radius: 50%;
+  box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
+  animation: rain 800ms ease-in-out infinite alternate;
+}
+
+.Clear {
+  background: $color4;
+  border-radius: 50%;
+  box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
+  animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
+}
+
 .cloud {
   margin-right:60px;
   background: darken($color1, 5%);
