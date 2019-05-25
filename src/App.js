@@ -3,9 +3,13 @@ import React from "react";
 import Titles from "./components/Titles";
 import Form from "./components/Form"
 import Weather from "./components/Weather"
+import GenericWeather from "./components/WeatherIcon"; // 'react-weather' or "./components/WeatherIcon"
+
 
 // shhhhh super secet API key pulled from github
 const API_KEY = "8d2de98e089f1c28e1a22fc19a24ef04";
+
+
 
 class App extends React.Component {
 
@@ -69,7 +73,9 @@ class App extends React.Component {
                       description={this.state.description}
                       error={this.state.error}
                     />
+                    <GenericWeather city={this.state.city} temp='25º' status='sun'/>
                   </div>
+
 
                 </div>
               </div>
