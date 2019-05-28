@@ -20,6 +20,7 @@ class App extends React.Component {
     humidity: undefined,
     condition: undefined,
     description: undefined,
+    windSpeed: undefined,
     error: undefined
   }
 
@@ -28,7 +29,7 @@ class App extends React.Component {
     const city = e.target.elements.city.value; 
     const country = e.target.elements.country.value; 
 
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`);
     const data = await api_call.json();
     if (city && country){
       console.log(data);
@@ -39,6 +40,7 @@ class App extends React.Component {
         humidity: data.main.humidity,
         condition: data.weather[0].main,
         description: data.weather[0].description,
+        windSpeed: data.wind.speed,
         error: ""
       })
     } else {
@@ -49,6 +51,7 @@ class App extends React.Component {
         humidity: undefined,
         condition: undefined,
         description: undefined,
+        windSpeed: undefined,
         error: "Please enter city and country"
       })
 
@@ -74,12 +77,14 @@ class App extends React.Component {
                       country={this.state.country}
                       humidity={this.state.humidity}
                       description={this.state.description}
+                      windSpeed={this.state.windSpeed}
                       error={this.state.error}
                     />
                     <GenericWeather
                         city={this.state.city}
                         temp={this.state.temperature}
-                        status={this.state.condition}/>
+                        status={this.state.condition}
+                        windSpeed={this.state.windSpeed}/>
                   </div>
 
 

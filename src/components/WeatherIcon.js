@@ -13,20 +13,22 @@ import './WeatherIcon.scss';
 //         </div>
 //     );
 // }
-
+// <div className={cx('wind-arrow', props.wind.speed)} />
 const GenericWeather = props => (
     <div className="weather-card">
         <div className={cx('weather-icon', props.status)} />
+        <div className={cx('wind-arrow', 'arrow right' , props.windSpeed)}> {props.windSpeed} </div>
         <h1>{props.temp}</h1>
         <p>{props.city}</p>
     </div>
 );
 
 
-// GenericWeather.defaultProps = {
-//     city: 'Jerusalem',
-//     temp: '25º',
-//     status: 'sun',
-// };
+GenericWeather.defaultProps = {
+    city: 'Jerusalem',
+    temp: '25º',
+    status: 'rain',
+    windSpeed: '12'
+};
 
 export default GenericWeather;
