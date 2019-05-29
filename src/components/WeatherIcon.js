@@ -17,7 +17,8 @@ import './WeatherIcon.scss';
 const GenericWeather = props => (
     <div className="weather-card">
         <div className={cx('weather-icon', props.status)} />
-        <div className={cx('wind-arrow', 'arrow right' , props.windSpeed)}> {props.windSpeed} </div>
+        <div className={cx('wind-arrow', `wind-${props.windSpeed}`)} />
+        <h4 className='wind-speed'>{props.windSpeed}mph</h4>
         <h1>{props.temp}</h1>
         <p>{props.city}</p>
     </div>
@@ -28,7 +29,7 @@ GenericWeather.defaultProps = {
     city: 'Jerusalem',
     temp: '25º',
     status: 'rain',
-    windSpeed: '12'
+    windSpeed: '10'
 };
 
 export default GenericWeather;
